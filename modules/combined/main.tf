@@ -47,8 +47,13 @@ module "github" {
 
   project               = var.project
   organization_name     = var.gh_organization_name
-  organization_members  = tomap({ for m in var.members : m.gh_username => m.gh_orga_role })
-  team_members          = tomap({ for m in var.members : m.gh_username => m.gh_team_role })
+
+  members = tomap({ for m in var.members : m.gh_username =>
+    {
+      "organization_role": m.gh_orga_role
+      "team_role": m.gh_team_role
+    }
+  })
 
   providers = {
     github = github

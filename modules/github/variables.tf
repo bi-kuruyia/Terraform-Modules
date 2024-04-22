@@ -8,12 +8,13 @@ variable "organization_name" {
   description = "le nom de votre organisation Github"
 }
 
-variable "organization_members" {
-  type        = map(string)
-  description = "les membres à rajouter a l'organisation GitHub"
-}
+variable "members" {
+  type = map(
+    object({
+      organization_role = string
+      team_role = string
+    })
+  )
 
-variable "team_members" {
-  type        = map(string)
-  description = "les membres à rajouter a l'équipe projet sur GitHub"
+  description = "les membres à rajouter a l'organisation et l'équipe projet sur GitHub"
 }

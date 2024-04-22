@@ -8,10 +8,10 @@ terraform {
 }
 
 resource "github_membership" "members" {
-  for_each = var.organization_members
+  for_each = var.members
 
   username = each.key
-  role     = each.value
+  role     = each.value.organization_role
 }
 
 resource "github_team" "project_team" {
@@ -19,11 +19,11 @@ resource "github_team" "project_team" {
 }
 
 resource "github_team_membership" "project_team_members" {
-  for_each = var.team_members
+  for_each = var.members
 
   team_id  = github_team.project_team.id
   username = each.key
-  role     = each.value
+  role     = each.value.team_role
 }
 
 resource "github_repository" "project_repo" {
