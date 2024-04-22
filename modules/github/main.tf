@@ -34,12 +34,12 @@ resource "github_repository_collaborators" "project_repo_collaborators" {
   repository = github_repository.project_repo.name
 
   user {
-    permission  = "admin"
-    username    = "Kuruyia"
+    permission = "admin"
+    username   = "Kuruyia"
   }
 
   team {
-    permission  = "push"
-    team_id     = github_team.project_team.slug
+    permission = "push"
+    team_id    = github_team.project_team.slug
   }
 }

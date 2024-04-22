@@ -1,15 +1,15 @@
 terraform {
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm"
+      source = "hashicorp/azurerm"
     }
 
     azuread = {
-      source  = "hashicorp/azuread"
+      source = "hashicorp/azuread"
     }
 
     github = {
-      source  = "integrations/github"
+      source = "integrations/github"
     }
   }
 }
@@ -45,13 +45,13 @@ module "azure" {
 module "github" {
   source = "../github"
 
-  project               = var.project
-  organization_name     = var.gh_organization_name
+  project           = var.project
+  organization_name = var.gh_organization_name
 
-  members = tomap({ for m in var.members : m.gh_username =>
-    {
-      "organization_role": m.gh_orga_role
-      "team_role": m.gh_team_role
+  members = tomap({
+    for m in var.members : m.gh_username => {
+      "organization_role" : m.gh_orga_role
+      "team_role" : m.gh_team_role
     }
   })
 

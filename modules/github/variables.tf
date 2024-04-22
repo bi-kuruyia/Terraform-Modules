@@ -12,7 +12,7 @@ variable "members" {
   type = map(
     object({
       organization_role = string
-      team_role = string
+      team_role         = string
     })
   )
 
