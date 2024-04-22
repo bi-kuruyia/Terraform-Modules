@@ -7,10 +7,6 @@ terraform {
   }
 }
 
-provider "github" {
-  owner = var.organization_name
-}
-
 resource "github_membership" "members" {
   for_each = var.organization_members
 

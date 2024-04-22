@@ -12,15 +12,6 @@ terraform {
   }
 }
 
-provider "azurerm" {
-  features {
-    key_vault {
-      purge_soft_delete_on_destroy    = true
-      recover_soft_deleted_key_vaults = true
-    }
-  }
-}
-
 data "azurerm_client_config" "current" {}
 data "azurerm_subscription" "primary" {}
 data "azuread_client_config" "current" {}
@@ -67,7 +58,7 @@ resource "azuread_group" "ad_group" {
   members           = var.azuread_members
 }
 
-resource "azurerm_role_assignment" "example" {
+resource "azurerm_role_assignment" "ad_group_contributor_role" {
   scope                = data.azurerm_subscription.primary.id
   role_definition_name = "Contributor"
   principal_id         = azuread_group.ad_group.object_id
