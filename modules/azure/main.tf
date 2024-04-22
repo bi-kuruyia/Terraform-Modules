@@ -34,10 +34,10 @@ resource "azurerm_data_factory" "adf" {
     for_each = var.environment == "dev" ? [1] : []
 
     content {
-      account_name    = "TestingThings404"
-      branch_name     = "master"
-      repository_name = "SpiceCraft.Finance"
-      root_folder     = "/DataFactory/adf-${var.project}-${var.location}-${var.environment}-01"
+      account_name    = local.datafactory_gh_account_name
+      branch_name     = local.datafactory_gh_branch_name
+      repository_name = local.datafactory_gh_repository_name
+      root_folder     = local.datafactory_gh_root_folder
     }
   }
 }

@@ -35,7 +35,7 @@ resource "github_repository_collaborators" "project_repo_collaborators" {
 
   user {
     permission = "admin"
-    username   = "Kuruyia"
+    username   = local.admin_username
   }
 
   team {
