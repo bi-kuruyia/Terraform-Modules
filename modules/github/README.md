@@ -9,7 +9,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider\_github) | 6.2.1 |
+| <a name="provider_github"></a> [github](#provider\_github) | ~> 6.2 |
 
 ## Modules
 
@@ -29,10 +29,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_organization_members"></a> [organization\_members](#input\_organization\_members) | les membres à rajouter a l'organisation GitHub | `map(string)` | n/a | yes |
+| <a name="input_members"></a> [members](#input\_members) | les membres à rajouter a l'organisation et l'équipe projet sur GitHub | <pre>map(<br>    object({<br>      organization_role = string<br>      team_role         = string<br>    })<br>  )</pre> | n/a | yes |
 | <a name="input_organization_name"></a> [organization\_name](#input\_organization\_name) | le nom de votre organisation Github | `string` | n/a | yes |
 | <a name="input_project"></a> [project](#input\_project) | le nom du projet à init (ex : sales, hr, finance ...) | `string` | n/a | yes |
-| <a name="input_team_members"></a> [team\_members](#input\_team\_members) | les membres à rajouter a l'équipe projet sur GitHub | `map(string)` | n/a | yes |
 
 ## Outputs
 
